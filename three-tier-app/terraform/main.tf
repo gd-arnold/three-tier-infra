@@ -12,3 +12,8 @@ provider "aws" {
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 }
+
+module "networking" {
+    source = "./modules/networking"
+    name_prefix = "tta"
+}
