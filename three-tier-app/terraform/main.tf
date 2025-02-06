@@ -14,6 +14,6 @@ provider "aws" {
 }
 
 module "networking" {
-    source = "./modules/networking"
-    name_prefix = "tta"
+  source      = "./modules/networking"
+  name_prefix = "tta"
 }
