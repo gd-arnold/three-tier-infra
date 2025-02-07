@@ -61,6 +61,22 @@ resource "aws_subnet" "application" {
     var.tags,
     {
       Name = "${var.name_prefix}-application-subnet-${count.index + 1}"
+      Tier = "application"
+    }
+  )
+}
+
+resource "aws_subnet" "database" {
+  count             = var.az_count
+  vpc_id            = aws_vpc.this.id
+  cidr_block        = cidrsubnet(var.vpc_cidr, 8, count.index + (2 * var.az_count))
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.name_prefix}-database-subnet-${count.index + 1}"
+      Tier = "database"
     }
   )
 }
