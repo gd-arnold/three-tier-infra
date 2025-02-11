@@ -14,7 +14,14 @@ provider "aws" {
 }
 
 module "networking" {
-  source      = "./modules/networking"
-  name_prefix = "tta"
+  source          = "./modules/networking"
+  name_prefix     = "tta"
   ssh_client_cidr = var.ssh_client_cidr
+}
+
+module "load-balancer" {
+  source      = "./modules/load-balancer"
+  name_prefix = "tta"
+  vpc_id      = module.networking.vpc_id
+  public_subnet_ids = module.networking.public_subnet_ids
 }
