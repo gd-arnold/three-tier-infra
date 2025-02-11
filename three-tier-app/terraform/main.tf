@@ -16,4 +16,5 @@ provider "aws" {
 module "networking" {
   source      = "./modules/networking"
   name_prefix = "tta"
+  ssh_client_cidr = var.ssh_client_cidr
 }
