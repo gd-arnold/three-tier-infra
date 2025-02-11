@@ -44,3 +44,14 @@ resource "aws_subnet" "database" {
   )
 }
 
+resource "aws_db_subnet_group" "this" {
+  name       = "${var.name_prefix}-db-subnet-group"
+  subnet_ids = aws_subnet.database[*].id
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.name_prefix}-db-subnet-group"
+    }
+  )
+}
