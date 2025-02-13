@@ -11,11 +11,11 @@ resource "aws_security_group" "bastion" {
   }
 
   egress {
-    from_port       = 22
-    to_port         = 22
-    protocol        = "tcp"
-    security_groups = [aws_security_group.application.id]
-    description     = "Allow SSH outbound traffic to application tier"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all outbound traffic"
   }
 
   tags = merge(
