@@ -8,18 +8,23 @@ variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
 
+variable "region" {
+  type    = string
+  default = "eu-central-1"
+}
+
 variable "az_count" {
   type    = number
   default = 2
 }
 
-variable "tags" {
-  type    = map(string)
-  default = {}
-}
-
 variable "db_port" {
   type    = number
   default = 3306 # default MySQL port
+}
+
+variable "tags" {
+  type    = map(string)
+  default = {}
 }
 
