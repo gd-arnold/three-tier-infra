@@ -18,11 +18,6 @@ variable "tags" {
   default = {}
 }
 
-variable "ssh_client_cidr" {
-  type        = string
-  description = "Custom IP address block for SSHing into bastion host"
-}
-
 variable "db_port" {
   type    = number
   default = 3306 # default MySQL port
