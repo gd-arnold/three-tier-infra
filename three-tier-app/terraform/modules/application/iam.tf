@@ -27,3 +27,15 @@ resource "aws_iam_policy_attachment" "ssm" {
   roles      = [aws_iam_role.application_role.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
+
+resource "aws_iam_instance_profile" "app_profile" {
+  name = "${var.name_prefix}-application-profile"
+  role = aws_iam_role.application_role.name
+
+  tags = merge(
+    var.tags,
+    {
+      Name : "${var.name_prefix}-application-profile"
+    }
+  )
+}
