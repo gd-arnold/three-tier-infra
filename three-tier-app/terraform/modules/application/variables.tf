@@ -11,6 +11,10 @@ variable "application_subnet_ids" {
   type = list(string)
 }
 
+variable "application_sg_id" {
+  type = string
+}
+
 variable "alb_target_group_arn" {
   type = string
 }
