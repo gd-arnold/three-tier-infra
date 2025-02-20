@@ -21,3 +21,11 @@ output "alb_sg_id" {
 output "application_sg_id" {
   value = aws_security_group.application.id
 }
+
+output "db_sg_id" {
+  value = aws_security_group.database.id
+}
+
+output "db_subnet_group_id" {
+  value = aws_db_subnet_group.this.id
+}
