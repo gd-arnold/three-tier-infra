@@ -1,3 +1,3 @@
 output "db_password_secret_arn" {
-  value = ""
+  value = aws_secretsmanager_secret.db_password.arn
 }

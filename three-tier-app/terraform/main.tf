@@ -4,6 +4,11 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.5"
+    }
   }
 }
 
@@ -41,6 +46,6 @@ module "database" {
   name_prefix        = "tta"
   vpc_id             = module.networking.vpc_id
   db_sg_id           = module.networking.db_sg_id
-  db_subnet_group_id = module.networking.db_subnet_group_id
+  db_subnet_group_name = module.networking.db_subnet_group_name
   db_name            = "tta-db"
 }
