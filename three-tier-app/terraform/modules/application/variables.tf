@@ -19,6 +19,10 @@ variable "alb_target_group_arn" {
   type = string
 }
 
+variable "db_password_secret_arn" {
+  type = string
+}
+
 variable "instance_type" {
   type    = string
   default = "t2.micro"

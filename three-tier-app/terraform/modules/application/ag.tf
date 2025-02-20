@@ -5,8 +5,8 @@ resource "aws_autoscaling_group" "application" {
   max_size            = var.max_size
   desired_capacity    = var.desired_capacity
 
-  target_group_arns = [var.alb_target_group_arn]
-  health_check_type = "ELB"
+  target_group_arns         = [var.alb_target_group_arn]
+  health_check_type         = "ELB"
   health_check_grace_period = 300
 
   launch_template {
