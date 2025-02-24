@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 1.0"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -42,10 +43,10 @@ module "application" {
 }
 
 module "database" {
-  source             = "./modules/database"
-  name_prefix        = "tta"
-  vpc_id             = module.networking.vpc_id
-  db_sg_id           = module.networking.db_sg_id
+  source               = "./modules/database"
+  name_prefix          = "tta"
+  vpc_id               = module.networking.vpc_id
+  db_sg_id             = module.networking.db_sg_id
   db_subnet_group_name = module.networking.db_subnet_group_name
-  db_name            = "tta-db"
+  db_name              = "tta-db"
 }
